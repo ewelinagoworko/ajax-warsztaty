@@ -17,7 +17,7 @@ document.getElementsByTagName('button')[0].onclick = function() {
 	//dopiero w momencie, kiedy mamy zwrocone dane (stan = 4), to dopiero mozemy zaczac w tym momencie wykonywac operacje na tych danych - tutaj wykonujemy operacje na danych:
 		if (dane.readyState == 4 && (dane.status >= 200 && dane.status < 300 || dane.status == 304 || navigator.userAgent.indexOf('Safari') >= 0 && typeof dane.status == 'undefined')) {//sprawdzamy status naszego serwera, czy nie wyrzuca bledow typu 400, 200, 300, a jak nie wyrzuca to jest okej
 		
-			var pobraneDane = dane.responseText;
+			var pobraneDane = dane.responseText; // <- tutaj definiujemy, jakie dane pobieramy
 			
 			//zmien dane tekstowe na obiekt JSON:
 			var jsonObj = JSON.parse(pobraneDane);
