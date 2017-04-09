@@ -28,26 +28,23 @@ function ajax(ajaxOptions) {
 	httpReq.open(options.type, options.url, true);
 	
 	httpReq.onreadystatechange = function() { //sprawdzany status/stan 
-		if(httpSuccess(httpReq) && httpReq.readyState == 4) {
+		
+		if(httpReq.readyState == 4) {
+			if(httpSuccess(httpReq)) {
 			
-			var returnData = (options.dataType == 'xml') ? httpReq.responseXML : httpReq.responseText; //jezeli to (options.dataType == 'xml') jest prawda, to zwroc httpReq.responseXML; jezeli falsz to zwroc httpReq.responseText;
+				var returnData = (options.dataType == 'xml') ? httpReq.responseXML : httpReq.responseText; //jezeli to (options.dataType == 'xml') jest prawda, to zwroc httpReq.responseXML; jezeli falsz to zwroc httpReq.responseText;
 			
-			options.onSuccess(returnData);
+				options.onSuccess(returnData);
 		   
 		   
 		   
-		} else {
-			options.onError(httpReq.statusText); //zwroci nam status połączenia
+			} else {
+				options.onError(httpReq.statusText); //zwroci nam status połączenia
+			}
 		}
-	}
-
+	}	
 	
-	
-	
-	
-	
-	httpReq.send();
-	
+	httpReq.send();	
 }
 
 //wywolujemy funkcje ajax:
@@ -55,7 +52,7 @@ ajax({
 	type: 'GET',
 	url: 'http://echo.jsontest.com/userId/108/userName/Akademia108/userURL/akademia108.pl',
 	onSuccess: function(response) {
-		console.log('hurra, pobrałam dane ' + returnData);
+		console.log('hurra, pobrałam dane ' + response);
 	},
 	onError: function(status) { //w przypadku, gdy pojawi sie błąd - to wywołaj alert
 		alert('Połączenie o statusie ' + status);
