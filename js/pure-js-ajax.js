@@ -47,6 +47,8 @@ function ajax(ajaxOptions) {
 	httpReq.send();	
 }
 
+//to co powyzej, to cala gotowa funkcja do ajaxa w czystym javascript tzw. obsluga zapytania ajax w czystym javascript, jedyne co bedziemy zmieniac, to te dane przy wywolaniu funkcji ajax
+
 //wywolujemy funkcje ajax:
 ajax({
 	type: 'GET',
