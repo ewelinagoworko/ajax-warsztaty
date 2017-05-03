@@ -50,6 +50,8 @@ function ajax(ajaxOptions) {
 //to co powyzej, to cala gotowa funkcja do ajaxa w czystym javascript tzw. obsluga zapytania ajax w czystym javascript, jedyne co bedziemy zmieniac, to te dane przy wywolaniu funkcji ajax
 
 //wywolujemy funkcje ajax:
+
+
 ajax({
 	type: 'GET',
 	url: 'http://echo.jsontest.com/userId/108/userName/Akademia108/userURL/akademia108.pl',
@@ -61,3 +63,4 @@ ajax({
     }
 	
 });
+
